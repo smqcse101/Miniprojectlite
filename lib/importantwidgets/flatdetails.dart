@@ -17,7 +17,17 @@ class IndividualFlatDetails extends StatefulWidget {
 }
 
 class _IndividualFlatDetailsState extends State<IndividualFlatDetails> {
-  List<FlatDetails> data1=[];
+//  List<FlatDetails> data1=[FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//    FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//    FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//    FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//    FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//    FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//    FlatDetails(fans:1,balconies: 1,bedrooms: 1,halls: 1,floorNumber: 1,kitchens: 1,tubeLights: 1,washrooms: 1,isfurnished: false,colour1: '',colour2: '',flatNumber: ''),
+//  ];
+List<FlatDetails> data1=[FlatDetails(),FlatDetails(),FlatDetails(),FlatDetails()];
+
+
 
 
 
@@ -31,7 +41,7 @@ class _IndividualFlatDetailsState extends State<IndividualFlatDetails> {
         title: Text(
           "Enter Details of Each Flat",
           style: TextStyle(
-              fontWeight: FontWeight.w500, fontSize: 28, color: Colors.white),
+              fontWeight: FontWeight.w500, fontSize: 20, color: Colors.white),
         ),
       ),
       body: SafeArea(
@@ -329,31 +339,17 @@ class _IndividualFlatDetailsState extends State<IndividualFlatDetails> {
                     Container(
                       width: screenwidth,
 
-                      child: SwitchListTile(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 6,vertical:2),
-                        title: Text(
-                          "Is Your Flat Furnished?",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w400),
-                        ),
-                        dense: true,
-                        value: data1[index].isfurnished,
-                        inactiveTrackColor: Colors.grey,
-                        activeColor: Colors.blue,
-                        onChanged: (bool val) {
-                          setState(() {
-                            data1[index].isfurnished = val;
-                          });
-                        },
-                      ),
+
                     ),
                     FlatButton(onPressed: (){
 
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  OwnerHomePage()));
+                      if(index==widget.data.flatsOwnedCount-1){
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    OwnerHomePage()));
+                      }
                     }, child: Text("Next"),
                       color: Colors.blue,)
 

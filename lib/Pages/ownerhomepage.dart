@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:miniproject/Pages/buildingdetails.dart';
+import 'package:miniproject/Pages/createnotice.dart';
 
 class OwnerHomePage extends StatefulWidget {
   @override
@@ -104,8 +106,12 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                FlatButton(onPressed: (){}, child: Text("Building Details"),color: Colors.blue[200],),
-                FlatButton(onPressed: (){}, child: Text("Create Notice"),color: Colors.blue[200]),
+                FlatButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BuildingDetails()));
+                }, child: Text("Building Details"),color: Colors.blue[200],),
+                FlatButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateNotice()));
+                }, child: Text("Create Notice"),color: Colors.blue[200]),
 
               ],
             ),
