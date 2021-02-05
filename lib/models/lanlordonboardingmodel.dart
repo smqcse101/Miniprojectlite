@@ -18,7 +18,6 @@ class LandLordOnBoardingModel {
   bool drinkingWaterFacility=false;
   bool borewellWaterFacility=false;
   int flatsOwnedCount;
-  //flatnames
 String currentNumber;
 String watchmanNumber;
 String waterSupplyNumber;

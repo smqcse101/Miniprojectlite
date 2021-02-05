@@ -13,6 +13,6 @@ class FlatDetails{
   int fans;
   int tubeLights;
   bool isfurnished=false;
-  List<String> furnitures;
+//  List<String> furnitures;
 
 }

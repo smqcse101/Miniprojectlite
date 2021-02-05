@@ -34,6 +34,6 @@ class _BuildingState extends State<Building> {
 
 
     return
-      LoginPage() ;
+      LandLordOnboarding() ;
   }
 }
