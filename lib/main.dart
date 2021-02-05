@@ -5,6 +5,9 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:miniproject/Pages/LandLordOnBoarding.dart';
+import 'package:miniproject/Pages/loginPage.dart';
+import 'package:miniproject/Pages/ownerhomepage.dart';
+import 'package:miniproject/importantwidgets/flatdetails.dart';
 
 
 void main() {
@@ -28,9 +31,9 @@ class _BuildingState extends State<Building> {
 
   @override
   Widget build(BuildContext context) {
-    double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
 
-    return LandLordOnboarding() ;
+
+    return
+      LoginPage() ;
   }
 }

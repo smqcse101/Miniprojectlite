@@ -20,7 +20,10 @@ class LandLordOnBoardingModel {
   int flatsOwnedCount;
   //flatnames
 String currentNumber;
+String watchmanNumber;
 String waterSupplyNumber;
-String watcmanNumber;
+
+String watchmanName;
+int watchmanAge;
 
 }

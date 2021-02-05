@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   toggle_switch: "^0.1.8"
   image_picker: ^0.6.7+7
+  cupertino_stepper: ^0.1.2
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +53,7 @@ flutter:
     - Assets/logo.png
     - Assets/googlelogo.png
     - Assets/123.png
+    - Assets/profile.png
 
 
 

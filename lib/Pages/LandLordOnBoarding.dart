@@ -1,7 +1,11 @@
 import "package:flutter/material.dart";
 import 'package:image_picker/image_picker.dart';
-import 'file:///C:/Users/Murtuza/AndroidStudioProjects/miniproject/lib/Pages/lanlordonboardingmodel.dart';
+import 'package:miniproject/importantwidgets/flatdetails.dart';
+
 import 'dart:io';
+
+import 'file:///C:/Users/Murtuza/AndroidStudioProjects/miniproject/lib/models/lanlordonboardingmodel.dart';
+
 
 class LandLordOnboarding extends StatefulWidget {
   @override
@@ -9,7 +13,7 @@ class LandLordOnboarding extends StatefulWidget {
 }
 
 class _LandLordOnboardingState extends State<LandLordOnboarding> {
-  LandLordOnBoardingModel data = LandLordOnBoardingModel();
+LandLordOnBoardingModel data=LandLordOnBoardingModel();
 
   void _forDp() async {
     PickedFile pickedFromGallery =
@@ -37,6 +41,7 @@ class _LandLordOnboardingState extends State<LandLordOnboarding> {
           Container(
             margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
 //                 padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
@@ -131,197 +136,182 @@ class _LandLordOnboardingState extends State<LandLordOnboarding> {
                     ],
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                      margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                      child: Text(
-                        "Your Building Details",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
-                      )),
+                Container(
+                    margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    child: Text(
+                      "Your Building Details",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 24),
+                    )),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue)),
+                  width: screenwidth * 0.65,
+                  child: TextFormField(
+                    onSaved: (value) {
+                      setState(() {
+                        data.buildingName = value;
+                      });
+                    },
+                    decoration: InputDecoration(
+                        hintText: 'Your Apartment Name',
+                        contentPadding: EdgeInsets.all(10)),
+                  ),
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.blue)),
-                    width: screenwidth * 0.65,
-                    child: TextFormField(
-                      onSaved: (value) {
-                        setState(() {
-                          data.buildingName = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                          hintText: 'Your Apartment Name',
-                          contentPadding: EdgeInsets.all(10)),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.45,
+                      child: TextFormField(
+                        onSaved: (value) {
+                          setState(() {
+                            data.buildingLocation = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                            hintText: 'Location',
+                            contentPadding: EdgeInsets.all(10)),
+                      ),
                     ),
-                  ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.35,
+                      child: TextFormField(
+                        onSaved: (value) {
+                          setState(() {
+                            data.buildingAge = int.parse(value);
+                          });
+                        },
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            hintText: 'Apartment Age',
+                            contentPadding: EdgeInsets.all(10)),
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.45,
-                        child: TextFormField(
-                          onSaved: (value) {
-                            setState(() {
-                              data.buildingLocation = value;
-                            });
-                          },
-                          decoration: InputDecoration(
-                              hintText: 'Location',
-                              contentPadding: EdgeInsets.all(10)),
-                        ),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.4,
+                      child: TextFormField(
+                        onSaved: (value) {
+                          setState(() {
+                            data.floorsCount = int.parse(value);
+                          });
+                        },
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            hintText: 'Number Of Floors',
+                            contentPadding: EdgeInsets.all(10)),
                       ),
-                      SizedBox(
-                        width: 20,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.23,
+                      child: TextFormField(
+                        onSaved: (value) {
+                          setState(() {
+                            data.buildingColour1 = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                            hintText: 'Colour1',
+                            contentPadding: EdgeInsets.all(10)),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.35,
-                        child: TextFormField(
-                          onSaved: (value) {
-                            setState(() {
-                              data.buildingAge = int.parse(value);
-                            });
-                          },
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              hintText: 'Apartment Age',
-                              contentPadding: EdgeInsets.all(10)),
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.23,
+                      child: TextFormField(
+                        onSaved: (value) {
+                          setState(() {
+                            data.buildingColour2 = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                            hintText: 'Colour2',
+                            contentPadding: EdgeInsets.all(10)),
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.4,
-                        child: TextFormField(
-                          onSaved: (value) {
-                            setState(() {
-                              data.floorsCount = int.parse(value);
-                            });
-                          },
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              hintText: 'Number Of Floors',
-                              contentPadding: EdgeInsets.all(10)),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.23,
-                        child: TextFormField(
-                          onSaved: (value) {
-                            setState(() {
-                              data.buildingColour1 = value;
-                            });
-                          },
-                          decoration: InputDecoration(
-                              hintText: 'Colour1',
-                              contentPadding: EdgeInsets.all(10)),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.23,
-                        child: TextFormField(
-                          onSaved: (value) {
-                            setState(() {
-                              data.buildingColour2 = value;
-                            });
-                          },
-                          decoration: InputDecoration(
-                              hintText: 'Colour2',
-                              contentPadding: EdgeInsets.all(10)),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.4,
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            hint: Text(
-                              " Preferred",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            iconEnabledColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                            value: data.preferred,
-                            items: <String>[
-                              "Family",
-                              "Joint Family",
-                              "Bachelors",
-                              "All"
-                            ].map((String dropDownString) {
-                              return DropdownMenuItem<String>(
-                                value: dropDownString,
-                                child: Text(dropDownString),
-                              );
-                            }).toList(),
-                            onChanged: (String selectedValue) {
-                              setState(() {
-                                data.preferred = selectedValue;
-                              });
-                            },
+                Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.4,
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          hint: Text(
+                            " Preferred",
+                            style: TextStyle(fontSize: 16),
                           ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.35,
-                        child: TextFormField(
-                          onSaved: (value){
+                          iconEnabledColor: Colors.black,
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                          value: data.preferred,
+                          items: <String>[
+                            "Family",
+                            "Joint Family",
+                            "Bachelors",
+                            "All"
+                          ].map((String dropDownString) {
+                            return DropdownMenuItem<String>(
+                              value: dropDownString,
+                              child: Text(dropDownString),
+                            );
+                          }).toList(),
+                          onChanged: (String selectedValue) {
                             setState(() {
-                              data.areOfBuilding=double.parse(value);
+                              data.preferred = selectedValue;
                             });
                           },
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              hintText: 'Area In Sq.Ft',
-                              contentPadding: EdgeInsets.all(10)),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.35,
+                      child: TextFormField(
+                        onSaved: (value){
+                          setState(() {
+                            data.areOfBuilding=double.parse(value);
+                          });
+                        },
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            hintText: 'Area In Sq.Ft',
+                            contentPadding: EdgeInsets.all(10)),
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 20),
                 ClipRRect(
@@ -366,186 +356,163 @@ class _LandLordOnboardingState extends State<LandLordOnboarding> {
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: screenwidth,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue)),
-                    child: SwitchListTile(
-                      title: Text(
-                        "Watchman Facility",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
-                      ),
-                      dense: true,
-                      value: data.watchmanFacility,
-                      inactiveTrackColor: Colors.grey,
-                      activeColor: Colors.blue,
-                      onChanged: (bool val) {
-                        setState(() {
-                          data.watchmanFacility = val;
-                        });
-                      },
+                Container(
+                  width: screenwidth,
+
+                  child: SwitchListTile(
+                    title: Text(
+                      "Watchman Facility",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
+                    dense: true,
+                    value: data.watchmanFacility,
+                    inactiveTrackColor: Colors.grey,
+                    activeColor: Colors.blue,
+                    onChanged: (bool val) {
+                      setState(() {
+                        data.watchmanFacility = val;
+                      });
+                    },
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: screenwidth,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue)),
-                    child: SwitchListTile(
-                      title: Text(
-                        "Lift Facility",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
-                      ),
-                      dense: true,
-                      value: data.liftFacility,
-                      inactiveTrackColor: Colors.grey,
-                      activeColor: Colors.blue,
-                      onChanged: (bool val) {
-                        setState(() {
-                          data.liftFacility = val;
-                        });
-                      },
+                Container(
+                  width: screenwidth,
+
+                  child: SwitchListTile(
+                    title: Text(
+                      "Lift Facility",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
+                    dense: true,
+                    value: data.liftFacility,
+                    inactiveTrackColor: Colors.grey,
+                    activeColor: Colors.blue,
+                    onChanged: (bool val) {
+                      setState(() {
+                        data.liftFacility = val;
+                      });
+                    },
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: screenwidth,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue)),
-                    child: SwitchListTile(
-                      title: Text(
-                        "Parking 2/4 Wheeler",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
-                      ),
-                      dense: true,
-                      value: data.parkingFacility,
-                      inactiveTrackColor: Colors.grey,
-                      activeColor: Colors.blue,
-                      onChanged: (bool val) {
-                        setState(() {
-                          data.parkingFacility = val;
-                        });
-                      },
+                Container(
+                  width: screenwidth,
+
+                  child: SwitchListTile(
+                    title: Text(
+                      "Parking 2/4 Wheeler",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
+                    dense: true,
+                    value: data.parkingFacility,
+                    inactiveTrackColor: Colors.grey,
+                    activeColor: Colors.blue,
+                    onChanged: (bool val) {
+                      setState(() {
+                        data.parkingFacility = val;
+                      });
+                    },
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: screenwidth,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue)),
-                    child: SwitchListTile(
-                      title: Text(
-                        "Drinking Water Facility",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
-                      ),
-                      dense: true,
-                      value: data.drinkingWaterFacility,
-                      inactiveTrackColor: Colors.grey,
-                      activeColor: Colors.blue,
-                      onChanged: (bool val) {
-                        setState(() {
-                          data.drinkingWaterFacility = val;
-                        });
-                      },
+                Container(
+                  width: screenwidth,
+
+                  child: SwitchListTile(
+                    title: Text(
+                      "Drinking Water Facility",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
+                    dense: true,
+                    value: data.drinkingWaterFacility,
+                    inactiveTrackColor: Colors.grey,
+                    activeColor: Colors.blue,
+                    onChanged: (bool val) {
+                      setState(() {
+                        data.drinkingWaterFacility = val;
+                      });
+                    },
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: screenwidth,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue)),
-                    child: SwitchListTile(
-                      title: Text(
-                        "Borewell Water Facility",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
-                      ),
-                      dense: true,
-                      value: data.borewellWaterFacility,
-                      inactiveTrackColor: Colors.grey,
-                      activeColor: Colors.blue,
-                      onChanged: (bool val) {
-                        setState(() {
-                          data.borewellWaterFacility = val;
-                        });
-                      },
+                Container(
+                  width: screenwidth,
+
+                  child: SwitchListTile(
+                    title: Text(
+                      "Borewell Water Facility",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
+                    dense: true,
+                    value: data.borewellWaterFacility,
+                    inactiveTrackColor: Colors.grey,
+                    activeColor: Colors.blue,
+                    onChanged: (bool val) {
+                      setState(() {
+                        data.borewellWaterFacility = val;
+                      });
+                    },
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                          child: Text(
-                            "Flats You own",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 24),
-                          )),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue)),
-                        width: screenwidth * 0.4,
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<int>(
-                            hint: Text(
-                              " Count",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            iconEnabledColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                            value: data.flatsOwnedCount,
-                            items: <int>[1, 2, 3, 4, 5, 6, 7]
-                                .map((int dropDownString) {
-                              return DropdownMenuItem<int>(
-                                value: dropDownString,
-                                child: Text(dropDownString.toString()),
-                              );
-                            }).toList(),
-                            onChanged: (int selectedValue) {
-                              setState(() {
-                                data.flatsOwnedCount = selectedValue;
-                              });
-                            },
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                        child: Text(
+                          "Flats You own",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24),
+                        )),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.blue)),
+                      width: screenwidth * 0.4,
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<int>(
+                          hint: Text(
+                            " Count",
+                            style: TextStyle(fontSize: 16),
                           ),
+                          iconEnabledColor: Colors.black,
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                          value: data.flatsOwnedCount,
+                          items: <int>[1, 2, 3, 4, 5, 6, 7]
+                              .map((int dropDownString) {
+                            return DropdownMenuItem<int>(
+                              value: dropDownString,
+                              child: Text(dropDownString.toString()),
+                            );
+                          }).toList(),
+                          onChanged: (int selectedValue) {
+                            setState(() {
+                              data.flatsOwnedCount = selectedValue;
+                            });
+                          },
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 20,
@@ -568,11 +535,11 @@ class _LandLordOnboardingState extends State<LandLordOnboarding> {
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                         width: 2, color: Colors.blue)),
-                                width: screenwidth * 0.65,
+                                width: screenwidth * 0.7,
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                       hintText:
-                                          'Your Apartment ${index + 1} Name',
+                                          'Your Apartment ${index + 1} Name/number',
                                       contentPadding: EdgeInsets.all(10)),
                                 ),
                               ),
@@ -581,67 +548,102 @@ class _LandLordOnboardingState extends State<LandLordOnboarding> {
                         ),
                       ),
                 SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.blue)),
-                    width: screenwidth * 0.85,
-                    child: TextFormField(
-                      onSaved: (value){
-                        setState(() {
-                          data.currentNumber=value;
-                        });
-                      },
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          hintText: 'Current/Electric Board Number',
-                          contentPadding: EdgeInsets.all(10)),
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue)),
+                  width: screenwidth * 0.85,
+                  child: TextFormField(
+                    onSaved: (value){
+                      setState(() {
+                        data.currentNumber=value;
+                      });
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        hintText: 'Current/Electric Board Number',
+                        contentPadding: EdgeInsets.all(10)),
                   ),
                 ),
                 SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.blue)),
-                    width: screenwidth * 0.85,
-                    child: TextFormField(
-                      onSaved: (value){
-                        setState(() {
-                          data.waterSupplyNumber=value;
-                        });
-                      },
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          hintText: 'Water supply Number',
-                          contentPadding: EdgeInsets.all(10)),
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue)),
+                  width: screenwidth * 0.85,
+                  child: TextFormField(
+                    onSaved: (value){
+                      setState(() {
+                        data.waterSupplyNumber=value;
+                      });
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        hintText: 'Water supply Number',
+                        contentPadding: EdgeInsets.all(10)),
                   ),
                 ),
                 SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.blue)),
-                    width: screenwidth * 0.85,
-                    child: TextFormField(
-                      onSaved: (value){
-                        setState(() {
-                          data.watcmanNumber=value;
-                        });
-                      },
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          hintText: 'Watchman Number',
-                          contentPadding: EdgeInsets.all(10)),
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue)),
+                  width: screenwidth * 0.85,
+                  child: TextFormField(
+                    onSaved: (value){
+                      setState(() {
+                       data.watchmanNumber=value;
+
+                      });
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        hintText: 'Watchman Number',
+                        contentPadding: EdgeInsets.all(10)),
                   ),
                 ),
                 SizedBox(height: 20),
-                RaisedButton(child: Text("Next"), onPressed: () {})
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue)),
+                  width: screenwidth * 0.85,
+                  child: TextFormField(
+                    onSaved: (value){
+                      setState(() {
+                        data.watchmanName=value;
+
+                      });
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        hintText: 'Watchman Name',
+                        contentPadding: EdgeInsets.all(10)),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue)),
+                  width: screenwidth * 0.85,
+                  child: TextFormField(
+                    onSaved: (value){
+                      setState(() {
+                        data.watchmanAge=int.parse(value);
+
+                      });
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        hintText: 'Watchman Age',
+                        contentPadding: EdgeInsets.all(10)),
+                  ),
+                ),
+                SizedBox(height: 20),
+                RaisedButton(child: Text("Next"), onPressed: () {
+
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              IndividualFlatDetails()));
+                })
               ],
             ),
           )
