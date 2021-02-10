@@ -8,6 +8,7 @@ import 'package:miniproject/Pages/buildingdetails.dart';
 import 'package:miniproject/Pages/createnotice.dart';
 import 'package:miniproject/Pages/loginPage.dart';
 import 'package:miniproject/Pages/ownerhomepage.dart';
+import 'package:miniproject/Pages/viewttenant.dart';
 import 'package:miniproject/importantwidgets/flatdetails.dart';
 
 void main() {

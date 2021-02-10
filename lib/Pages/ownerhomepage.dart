@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:miniproject/Pages/buildingdetails.dart';
 import 'package:miniproject/Pages/createnotice.dart';
+import 'package:miniproject/Pages/viewttenant.dart';
 
 class OwnerHomePage extends StatefulWidget {
   @override
@@ -59,7 +60,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                             ],
                           ),
 
-                          FlatButton.icon(onPressed: (){},label: Text("Add Tenant",), color:Colors.blue[200],icon: Icon(Icons.add,),)
+                          FlatButton(onPressed: (){},child: Text("View Flat",), color:Colors.blue[200],)
                         ],
                       ),
                     ),
@@ -84,7 +85,10 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                             ],
                           ),
 
-                          FlatButton(onPressed: (){},child: Text("View Tenant",), color: Colors.blue[200],)
+                          FlatButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewTenantDetails()));
+
+                          },child: Text("View Tenant",), color: Colors.blue[200],)
                         ],
                       ),
                     ),
