@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:miniproject/Pages/LandLordOnBoarding.dart';
+import 'package:miniproject/Pages/addtenant.dart';
 import 'package:miniproject/Pages/buildingdetails.dart';
 import 'package:miniproject/Pages/createnotice.dart';
 import 'package:miniproject/Pages/loginPage.dart';
@@ -30,6 +31,6 @@ class Building extends StatefulWidget {
 class _BuildingState extends State<Building> {
   @override
   Widget build(BuildContext context) {
-    return LoginPage();
+    return AddTenant();
   }
 }
