@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:miniproject/Pages/addtenant.dart';
 import 'package:miniproject/Pages/buildingdetails.dart';
 import 'package:miniproject/Pages/createnotice.dart';
 import 'package:miniproject/Pages/viewttenant.dart';
@@ -60,7 +61,10 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                             ],
                           ),
 
-                          FlatButton(onPressed: (){},child: Text("View Flat",), color:Colors.blue[200],)
+                          FlatButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>AddTenant()));
+
+                          },child: Text("View Flat",), color:Colors.blue[200],)
                         ],
                       ),
                     ),

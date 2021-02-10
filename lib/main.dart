@@ -9,6 +9,7 @@ import 'package:miniproject/Pages/buildingdetails.dart';
 import 'package:miniproject/Pages/createnotice.dart';
 import 'package:miniproject/Pages/loginPage.dart';
 import 'package:miniproject/Pages/ownerhomepage.dart';
+import 'package:miniproject/Pages/tenantHomePage.dart';
 import 'package:miniproject/Pages/viewttenant.dart';
 import 'package:miniproject/importantwidgets/flatdetails.dart';
 
@@ -31,6 +32,6 @@ class Building extends StatefulWidget {
 class _BuildingState extends State<Building> {
   @override
   Widget build(BuildContext context) {
-    return AddTenant();
+    return TenantHomePage();
   }
 }
